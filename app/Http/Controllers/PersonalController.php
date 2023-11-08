@@ -24,6 +24,7 @@ class PersonalController extends Controller
     public function store(StorePersonal $request)
     {
         Personal::create($request->all());
+        session()->flash('msg', 'Personal Agregado Correctamente');
         return redirect()->route('personals.index');
     }
 
@@ -33,14 +34,24 @@ class PersonalController extends Controller
         return view('administrator.personals.edit', compact('personal'), compact('genders'));
     }
 
-    public function update(Personal $personal, StorePersonal $request)
+    public function update(Personal $personal, Request $request)
     {
+        $request->validate([
+            'document' => 'required|max:10|unique:personals,document,'.$personal->id,
+            'first_name' => 'required',
+            'first_last_name' => 'required',
+            // 'email' => 'unique:personals',
+            'gender_id' => 'required'
+        ]);
+
         $personal->update($request->all());
+        session()->flash('msg', 'Personal Editado Correctamente');
         return redirect()->route('personals.index');
     }
 
     public function destroy(Personal $personal) {
         $personal->delete();
+        session()->flash('msg', 'Personal Eliminado Correctamente');
         return redirect()->route('personals.index');
     }
 }

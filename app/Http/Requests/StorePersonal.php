@@ -24,9 +24,10 @@ class StorePersonal extends FormRequest
     public function rules()
     {
         return [
-            'document' => 'required | max:10 | unique:personals',
+            'document' => 'required|max:10|unique:personals',
             'first_name' => 'required',
             'first_last_name' => 'required',
+            // 'email' => 'unique:personals',
             'gender_id' => 'required'
         ];
     }

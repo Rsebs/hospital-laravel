@@ -27,6 +27,7 @@ class StorePatient extends FormRequest
             'document' => 'required | max:10 | unique:patients',
             'first_name' => 'required',
             'first_last_name' => 'required',
+            // 'email' => 'unique:patients',
             'gender_id' => 'required'
         ];
     }

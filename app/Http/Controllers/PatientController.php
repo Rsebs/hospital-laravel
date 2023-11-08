@@ -25,7 +25,7 @@ class PatientController extends Controller
     {
         // Importante crear el array $fillable en el modelo para indicarle a Eloquent qué campos se van a llenar
         Patient::create($request->all());
-        return redirect()->route('patients.index');
+        return redirect()->route('patients.index')->with('msg', 'Paciente Agregado Correctamente');
     }
 
     public function edit(Patient $patient)
@@ -37,8 +37,9 @@ class PatientController extends Controller
 
     public function update(Patient $patient, Request $request)
     {
+
         $request->validate([
-            'document' => 'required | max: 10',
+            'document' => 'required|max:10|unique:personals,document,' . $patient->id,
             'first_name' => 'required',
             'first_last_name' => 'required',
             'gender_id' => 'required'
@@ -68,12 +69,13 @@ class PatientController extends Controller
 
         $patient->update($request->all());
 
-        return redirect()->route('patients.index');
+        return redirect()->route('patients.index')->with('msg', 'Paciente Editado Correctamente');
     }
 
-    public function destroy(Patient $patient) {
+    public function destroy(Patient $patient)
+    {
         $patient->delete();
 
-        return redirect()->route('patients.index');
+        return redirect()->route('patients.index')->with('msg', 'Paciente Eliminado Correctamente');
     }
 }

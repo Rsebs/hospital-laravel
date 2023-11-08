@@ -68,6 +68,9 @@
                             placeholder="Puede ser fijo o móvil"
                             value="{{ old('contact_number', $patient->contact_number) }}">
                     </div>
+                    {{-- @error('email')
+                        *{{ $message }}
+                    @enderror --}}
                 </div>
             </div>
             <div class="d-flex justify-content-center gap-4 mt-3">

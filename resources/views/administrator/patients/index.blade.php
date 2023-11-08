@@ -4,6 +4,9 @@
 
 @section('content')
     <main class="container">
+        @if (session('msg'))
+            <h1>{{ session('msg') }}</h1>
+        @endif
         <div class="card">
             <div class="card-header bg-color-primary">
                 <p class="m-0">Pacientes</p>

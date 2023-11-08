@@ -37,7 +37,7 @@
                         <label for="document" class="input-group-text">Documento</label>
                         <input type="text" name="document" id="document" class="form-control"
                             placeholder="Número de Documento" value="{{ old('document', $personal->document) }}">
-                        @error('email')
+                        @error('document')
                             *{{ $message }}
                         @enderror
                     </div>
@@ -67,6 +67,9 @@
                             placeholder="Puede ser fijo o móvil"
                             value="{{ old('contact_number', $personal->contact_number) }}">
                     </div>
+                    {{-- @error('email')
+                        *{{ $message }}
+                    @enderror --}}
                 </div>
             </div>
             <div class="d-flex justify-content-center gap-4 mt-3">
