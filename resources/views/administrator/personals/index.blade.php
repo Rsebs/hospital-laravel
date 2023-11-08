@@ -1,17 +1,16 @@
 @extends('layouts.template')
 
-@section('title', 'Pacientes')
-
+@section('title', 'Personal')
 @section('content')
     <main class="container">
         <div class="card">
             <div class="card-header bg-color-primary">
-                <p class="m-0">Pacientes</p>
+                <p class="m-0">Personal</p>
             </div>
             <div class="card-body">
-                <a href="{{ route('patients.create') }}" class="btn btn-primary">
+                <a href="{{ route('personals.create') }}" class="btn btn-primary">
                     <img src="#" alt="image add">
-                    <p class="d-inline-block mx-2 my-0">Agregar Paciente</p>
+                    <p class="d-inline-block mx-2 my-0">Agregar Personal</p>
                 </a>
                 <div id="alert"></div>
                 <div class="table-responsive">
@@ -27,38 +26,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($patients as $p)
+                            @foreach ($personals as $p)
                                 <tr>
                                     <td>{{ $p->document }}</td>
                                     <td>{{ $p->first_name }} {{ $p->second_name }} {{ $p->first_last_name }}
-                                        {{ $p->second_last_name }} </td>
+                                        {{ $p->second_last_name }}</td>
                                     <td>{{ $p->gender_id }}</td>
                                     <td>{{ $p->email }}</td>
                                     <td>{{ $p->contact_number }}</td>
                                     <td class="d-flex flex-sm-column flex-lg-row gap-2">
-                                        <a href="#" title="Crear Factura" class="btn btn-secondary">
-                                            <img src="#" alt="image add">
-                                        </a>
-                                        <a href="{{ route('patients.edit', $p->id) }}" title="Editar Paciente"
+                                        <a href="{{ route('personals.edit', $p) }}" title="Editar Personal"
                                             class="btn btn-success">
                                             <img src="#" alt="image edit">
                                         </a>
-                                        <form action="{{ route('patients.destroy', $p) }}" method="POST">
+                                        <form action="{{ route('personals.destroy', $p) }}" method="POST">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" title="Eliminar Paciente" class="btn btn-danger">
+                                            <button type="submit" title="Borrar Personal" class="btn btn-danger">
                                                 <img src="#" alt="image remove">
                                             </button>
                                         </form>
                                     </td>
                                 </tr>
                             @endforeach
-                            <tr>
-                                <td class="text-center" colspan="6">Aún no hay datos</td>
-                            </tr>
                         </tbody>
                     </table>
-                    {{ $patients->links() }}
+                    {{ $personals->links() }}
                 </div>
             </div>
         </div>

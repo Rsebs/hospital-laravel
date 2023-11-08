@@ -35,7 +35,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">Administrar</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                <a class="dropdown-item" href="#">Personal</a>
+                                <a class="dropdown-item" href="{{ route('personals.index') }}">Personal</a>
                                 <a class="dropdown-item" href="{{ route('patients.index') }}">Pacientes</a>
                                 <a class="dropdown-item" href="#">Medicina</a>
                                 <a class="dropdown-item" href="#">Géneros</a>
@@ -43,8 +43,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <p class="nav-link m-0 fw-bold">Bievenido <?php // echo $_SESSION['user_userName'];
-                            ?></p>
+                            <p class="nav-link m-0 fw-bold">Bievenido</p>
                         </li>
                     </ul>
                 </div>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\PersonalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,10 +32,27 @@ Route::controller(PatientController::class)->group(function () {
     Route::get('patients/create', 'create')->name('patients.create');
     Route::post('patients', 'store')->name('patients.store');
 
-    // Edit
+    // Update
     Route::get('patients/{patient}/edit', 'edit')->name('patients.edit');
     Route::put('patients/{patient}', 'update')->name('patients.update');
 
     // Delete
     Route::delete('patients/{patient}', 'destroy')->name('patients.destroy');
+});
+
+
+Route::controller(PersonalController::class)->group(function () {
+    // Index
+    Route::get('personals/', 'index')->name('personals.index');
+
+    // Create
+    Route::get('personals/create', 'create')->name('personals.create');
+    Route::post('personals', 'store')->name('personals.store');
+
+    // Update
+    Route::get('personals/{personal}/edit', 'edit')->name('personals.edit');
+    Route::put('personals/{personal}', 'update')->name('personals.update');
+
+    // Delete
+    Route::delete('personals/{personal}', 'destroy')->name('personals.destroy');
 });

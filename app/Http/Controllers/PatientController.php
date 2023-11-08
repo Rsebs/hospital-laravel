@@ -25,7 +25,6 @@ class PatientController extends Controller
     {
         // Importante crear el array $fillable en el modelo para indicarle a Eloquent qué campos se van a llenar
         Patient::create($request->all());
-        
         return redirect()->route('patients.index');
     }
 
