@@ -39,7 +39,7 @@
                                         <a href="#" title="Crear Factura" class="btn btn-secondary">
                                             <img src="#" alt="image add">
                                         </a>
-                                        <a href="{{ route('patients.edit', $p->id) }}" title="Editar Paciente"
+                                        <a href="{{ route('patients.edit', $p) }}" title="Editar Paciente"
                                             class="btn btn-success">
                                             <img src="#" alt="image edit">
                                         </a>

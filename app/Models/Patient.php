@@ -24,4 +24,9 @@ class Patient extends Model
 
     // Los campos que están protegidos
     /* protected $guarded = ['status']; */
+
+    public function getRouteKeyName()
+    {
+        return 'document';
+    }
 }

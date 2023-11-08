@@ -19,4 +19,9 @@ class Personal extends Model
         'email',
         'contact_number'
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'document';
+    }
 }
