@@ -21,7 +21,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-success d-block w-25 mx-auto mb-4">Iniciar Sesión</button>
-            <p class="text-center">¿Aún no tienes una cuenta? <a href="signUp.php"
+            <p class="text-center">¿Aún no tienes una cuenta? <a href="{{ route('session.signUp') }}"
                     class="text-decoration-none">Regístrate</a></p>
             <div id="alert" class="text-center"></div>
         </form>

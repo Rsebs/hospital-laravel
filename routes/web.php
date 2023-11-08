@@ -24,6 +24,7 @@ Route::controller(SessionController::class)->group(function () {
     Route::get('session/signUp', 'createAccount')->name('session.signUp');
 });
 
+/*
 Route::controller(PatientController::class)->group(function () {
     // Index
     Route::get('patients/', 'index')->name('patients.index');
@@ -39,20 +40,7 @@ Route::controller(PatientController::class)->group(function () {
     // Delete
     Route::delete('patients/{patient}', 'destroy')->name('patients.destroy');
 });
+*/
 
-
-Route::controller(PersonalController::class)->group(function () {
-    // Index
-    Route::get('personals/', 'index')->name('personals.index');
-
-    // Create
-    Route::get('personals/create', 'create')->name('personals.create');
-    Route::post('personals', 'store')->name('personals.store');
-
-    // Update
-    Route::get('personals/{personal}/edit', 'edit')->name('personals.edit');
-    Route::put('personals/{personal}', 'update')->name('personals.update');
-
-    // Delete
-    Route::delete('personals/{personal}', 'destroy')->name('personals.destroy');
-});
+Route::resource('patients', PatientController::class);
+Route::resource('personals', PersonalController::class);

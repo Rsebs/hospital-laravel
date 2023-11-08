@@ -34,7 +34,8 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-success d-block w-25 mx-auto mb-4">Registrarse</button>
-            <p class="text-center">¿Ya tienes una cuenta? <a href="login.php" class="text-decoration-none">Inicia Sesión</a>
+            <p class="text-center">¿Ya tienes una cuenta? <a href="{{ route('session.login') }}"
+                    class="text-decoration-none">Inicia Sesión</a>
             </p>
             <div id="alert" class="text-center"></div>
         </form>
