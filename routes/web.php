@@ -19,9 +19,12 @@ use App\Http\Controllers\PersonalController;
 
 Route::get('/', HomeController::class)->name('index');
 
+// Route::view('url', 'viewName') muestra una vista estatica, es decir, sin necesidad de conectarse a la base de datos
+Route::view('about-us', 'aboutUs')->name('aboutUs');
+
 Route::controller(SessionController::class)->group(function () {
     Route::get('session/login', 'login')->name('session.login');
-    Route::get('session/signUp', 'createAccount')->name('session.signUp');
+    Route::get('session/sign-up', 'createAccount')->name('session.signUp');
 });
 
 /*
